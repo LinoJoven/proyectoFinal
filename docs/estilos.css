@@ -1,1 +1,80 @@
-#map { height: 1800px; }
+#map { height: 40%; }
+
+body {
+  background-color: #294D61
+}
+
+.p{ color:#f1f1f1}
+/* Estilos generales del cuerpo (opcional, para resetear márgenes) */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Una fuente legible */
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: #05161a; /* Color de fondo oscuro */
+    padding: 15px 20px; /* Espaciado interno (arriba/abajo  izquierda/derecha) */
+    display: flex; /* Usamos Flexbox para alinear el logo y los enlaces */
+    justify-content: space-between; /* Espacia el logo a la izquierda y los links a la derecha */
+    align-items: center; /* Centra verticalmente los elementos */
+    color: white; /* Color del texto para el logo (si no es una imagen) */
+}
+
+.navbar .logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em; /* Podrías reducir este valor si es necesario */
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none; /* Quita los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Pone los elementos de la lista en línea (horizontal) */
+}
+
+.nav-links li {
+    margin-left: 20px; /* Espacio entre los elementos del menú */
+}
+
+.nav-links li a {
+    color: white; /* Color del texto de los enlaces */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    padding: 5px 10px; /* Espaciado interno para hacerlos más clickeables */
+    border-radius: 4px; /* Bordes redondeados (opcional) */
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+/* Efecto al pasar el mouse por encima de los enlaces */
+.nav-links li a:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Estilos para el contenido principal y pie de página (ejemplo básico) */
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    position: fixed; /* Opcional: para que el pie de página quede abajo */
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        align-items: center; /* Los centra */
+        /* Aquí usualmente ocultarías .nav-links y mostrarías un botón de hamburguesa */
+    }
+
+    .navbar {
+        flex-direction: column; /* El logo arriba y los links abajo */
+        align-items: flex-start; /* Alinea el logo a la izquierda */
+    }
+}
