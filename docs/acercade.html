@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acerca de Nosotros - Mi Sitio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="estilos.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    </head>
 <body>
     <header>
         <nav class="navbar">
             <a href="index.html" class="logo">Barra de navegacion</a>
             <ul class="nav-links">
-                <li><a href="acerca.html">Acerca de...</a></li>
+                <li><a href="acercade.html">Acerca de...</a></li>
                 <li><a href="descripcion.html">Descripcion</a></li>
                 <li><a href="autor.html">Autor</a></li>
             </ul>
@@ -19,13 +26,46 @@
     </header>
 
     <main>
-        <h1>Acerca de Nosotros</h1>
-        <p>Aquí puedes escribir toda la información sobre tu proyecto, empresa o sobre qué trata este sitio web.</p>
-        <p>Puedes añadir más párrafos, imágenes, listas, etc.</p>
+        <h1>Acerca de este proyecto...</h1>
+
+        <div class="content-map-container">
+            <div class="text-content">
+                <p>En este proyecto se analizará la cantidad de animales que son afectados por los fuertes ruidos producidos por los conciertos que se presentan en el parque Simón Bolívar. Además, se ubicarán puntos donde estos animales residen habitualmente y se medirá el rango del sonido.</p>
+                </div>
+
+            <div id="mapAcerca"></div>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2025 Mi Sitio Web</p>
     </footer>
+
+    <script>
+        var mapCenter = [4.65730641066752, -74.09397166519042];
+        var map = L.map('mapAcerca').setView(mapCenter, 16); 
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker(mapCenter).addTo(map)
+            .bindPopup('Punto central de interés.')
+            .openPopup();
+
+        var polygonCoords = [
+            [4.65730641066752, -74.10023730529439],
+            [4.665347809754872, -74.0932421043564],
+            [4.659445089618727, -74.08925097744088],
+            [4.652387424404236, -74.09315627367006]
+        ];
+
+        var polygon = L.polygon(polygonCoords, {
+            color: 'blue',      
+            fillColor: '#3388ff', 
+            fillOpacity: 0.2    
+        }).addTo(map);
+    </script>
 </body>
 </html>

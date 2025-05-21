@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre el Autor - Mi Sitio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="estilos.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    </head>
 <body>
     <header>
         <nav class="navbar">
             <a href="index.html" class="logo">Barra de navegacion</a>
             <ul class="nav-links">
-                <li><a href="acerca.html">Acerca de...</a></li>
+                <li><a href="acercade.html">Acerca de...</a></li>
                 <li><a href="descripcion.html">Descripcion</a></li>
                 <li><a href="autor.html">Autor</a></li>
             </ul>
@@ -19,13 +26,46 @@
     </header>
 
     <main>
-        <h1>Información del Autor</h1>
-        <p>Aquí puedes presentarte. Habla sobre quién eres, tu experiencia, o cualquier otra información relevante sobre el creador o los creadores del sitio web.</p>
-        <p>¡No dudes en añadir una foto o enlaces a tus redes sociales si lo deseas!</p>
+        <h1>AUTOR</h1>
+
+        <div class="autor-info-container">
+            <div class="autor-foto">
+                <img src="IMG_9940.jpg" alt="Foto de Lino Augusto Joven Galindo">
+                </div>
+
+            <div class="biografia-texto">
+                <h2>Mi Biografía</h2>
+                <p>Mi nombre es Lino Augusto Joven Galindo y soy estudiante de la universidad Francisco José de Caldas.</p>
+                </div>
+        </div>
+
+        <div class="mapa-autor-container">
+            <h2>Ubicación de Interés</h2>
+            <div id="mapAutor"></div> {/* Contenedor para el mapa del autor */}
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Mi Sitio Web</p>
+        <p>&copy; 2025 Mi Sitio Web. Creado en Bogotá, Colombia.</p>
     </footer>
-</body>
+
+    <script>
+        // Coordenadas para el centro del mapa del autor
+        var mapAutorCenter = [1.6080994153090482, -75.60796675618661];
+
+        // Inicializar el mapa y establecer la vista
+        var mapAutor = L.map('mapAutor').setView(mapAutorCenter, 13);
+
+        // Añadir la capa de teselas (el fondo del mapa)
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors. Hora actual en Bogotá: ' + new Date().toLocaleTimeString('es-CO', { timeZone: 'America/Bogota' })
+        }).addTo(mapAutor);
+
+        // Añadir un marcador en el centro (opcional)
+        L.marker(mapAutorCenter).addTo(mapAutor)
+            .bindPopup('Ubicación de referencia del autor.')
+            .openPopup();
+    </script>
+    </body>
 </html>

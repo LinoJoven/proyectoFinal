@@ -4,77 +4,378 @@ body {
   background-color: #294D61
 }
 
-.p{ color:#f1f1f1}
-/* Estilos generales del cuerpo (opcional, para resetear márgenes) */
+/* estilos.css */
+
+/* Estilos generales del cuerpo */
 body {
     margin: 0;
-    font-family: Arial, sans-serif; /* Una fuente legible */
+    font-family: 'Arial', sans-serif; /* Fuente limpia y legible */
+    background-color: #294D61;    /* Tu color de fondo oscuro para toda la página */
+    color: #f1f1f1;               /* Color de texto general claro para el cuerpo */
+    line-height: 1.6;             /* Interlineado general para mejor lectura */
 }
 
 /* Estilos para la barra de navegación */
 .navbar {
-    background-color: #05161a; /* Color de fondo oscuro */
-    padding: 15px 20px; /* Espaciado interno (arriba/abajo  izquierda/derecha) */
-    display: flex; /* Usamos Flexbox para alinear el logo y los enlaces */
-    justify-content: space-between; /* Espacia el logo a la izquierda y los links a la derecha */
-    align-items: center; /* Centra verticalmente los elementos */
-    color: white; /* Color del texto para el logo (si no es una imagen) */
+    background-color: #05161a; /* Color de fondo oscuro para la navbar */
+    padding: 15px 25px;        /* Un poco más de padding horizontal */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra más notable */
 }
 
 .navbar .logo {
     color: white;
     text-decoration: none;
-    font-size: 1.2em; /* Podrías reducir este valor si es necesario */
+    font-size: 1.4em; /* Un poco más grande el logo/título de la nav */
     font-weight: bold;
 }
 
 .nav-links {
-    list-style: none; /* Quita los puntos de la lista */
+    list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Pone los elementos de la lista en línea (horizontal) */
+    display: flex;
 }
 
 .nav-links li {
-    margin-left: 20px; /* Espacio entre los elementos del menú */
+    margin-left: 25px; /* Un poco más de espacio entre links */
 }
 
 .nav-links li a {
-    color: white; /* Color del texto de los enlaces */
-    text-decoration: none; /* Quita el subrayado de los enlaces */
-    padding: 5px 10px; /* Espaciado interno para hacerlos más clickeables */
-    border-radius: 4px; /* Bordes redondeados (opcional) */
-    transition: background-color 0.3s ease; /* Transición suave para el hover */
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px; /* Padding más generoso en los links */
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Efecto al pasar el mouse por encima de los enlaces */
-.nav-links li a:hover {
-    background-color: #555; /* Cambia el color de fondo al pasar el mouse */
+.nav-links li a:hover, .nav-links li a.active { /* 'active' para la página actual */
+    background-color: #294D61; /* Color de fondo al pasar el mouse/activo */
+    color: white;
 }
 
-/* Estilos para el contenido principal y pie de página (ejemplo básico) */
+/* Estilos para el contenido principal (main) */
 main {
-    padding: 20px;
+    padding: 40px 20px; /* Más padding vertical */
+    max-width: 900px;   /* Ancho máximo para el contenido, para que no sea demasiado ancho en pantallas grandes */
+    margin: 0 auto;     /* Centra el bloque 'main' en la página */
 }
 
-footer {
-    background-color: #f1f1f1;
+main h1 {
+    color: #ffffff; /* Blanco brillante para el título principal de la página */
     text-align: center;
-    padding: 10px;
-    position: fixed; /* Opcional: para que el pie de página quede abajo */
-    bottom: 0;
-    width: 100%;
+    font-size: 2.2em; /* Tamaño de fuente para H1 */
+    margin-bottom: 40px; /* Más espacio debajo del H1 */
+    font-weight: bold;
 }
 
+main h2 {
+    color: #e0e0e0;
+    font-size: 1.8em; /* Tamaño de fuente para H2 */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #4A6D82; /* Borde inferior más grueso */
+    padding-bottom: 10px;
+}
+
+main h3 {
+    color: #cccccc;
+    font-size: 1.4em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+main p, main ul, main li { /* Estilos comunes para párrafos y listas en main */
+    color: #dcdcdc;
+    font-size: 1em; /* Tamaño de fuente base para el texto */
+    line-height: 1.7; /* Interlineado generoso */
+    margin-bottom: 20px; /* Espacio debajo de párrafos y elementos de lista */
+}
+
+main ul {
+    list-style: disc; /* Estilo de viñeta estándar */
+    padding-left: 40px; /* Más indentación para las listas */
+}
+
+main li {
+    margin-bottom: 10px;
+}
+
+main a { /* Estilo para enlaces dentro del contenido principal */
+    color: #87CEEB; /* Azul cielo para enlaces, para que destaquen */
+    text-decoration: none;
+}
+
+main a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* Mapa (si se usa) */
+#map {
+    height: 400px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #05161a;
+    border-radius: 4px; /* Bordes redondeados para el mapa */
+}
+
+/* Pie de página */
+footer {
+    background-color: #05161a;
+    color: #ccc;
+    text-align: center;
+    padding: 25px 20px; /* Más padding */
+    margin-top: 60px; /* Más espacio antes del footer */
+    border-top: 1px solid #294D61;
+}
+
+/* Media Queries para responsividad */
 @media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center; /* Centrar logo y links en móvil */
+    }
+    .navbar .logo {
+        margin-bottom: 15px; /* Espacio entre logo y links cuando están en columna */
+    }
     .nav-links {
-        flex-direction: column; /* Apila los enlaces verticalmente */
-        align-items: center; /* Los centra */
-        /* Aquí usualmente ocultarías .nav-links y mostrarías un botón de hamburguesa */
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .nav-links li {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .nav-links li a {
+        display: block;
+        text-align: center; /* Centrar texto de los links en móvil */
+        padding: 10px; /* Padding uniforme para links en móvil */
     }
 
-    .navbar {
-        flex-direction: column; /* El logo arriba y los links abajo */
-        align-items: flex-start; /* Alinea el logo a la izquierda */
+    main h1 { font-size: 1.8em; margin-bottom: 30px;}
+    main h2 { font-size: 1.5em; }
+    main h3 { font-size: 1.2em; }
+    main { padding: 30px 15px; }
+}
+/* estilos.css */
+
+/* ... (TODOS TUS ESTILOS ANTERIORES VAN AQUÍ) ... */
+
+/* Nuevos estilos para el contenedor del mapa y texto en acercade.html */
+.content-map-container {
+    display: flex; /* Habilita Flexbox para poner elementos en fila */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no hay espacio */
+    gap: 20px; /* Espacio entre el mapa y el bloque de texto */
+    margin-top: 30px; /* Espacio después del título H1 */
+    margin-bottom: 30px; /* Espacio antes del footer o siguiente contenido */
+}
+
+#mapAcerca {
+    height: 450px; /* Altura del mapa, ajústala según necesites */
+    flex: 1;       /* Hace que el mapa ocupe una parte del espacio disponible */
+    min-width: 300px; /* Ancho mínimo para el mapa antes de que se envuelva en pantallas pequeñas */
+    border: 1px solid #05161a; /* Borde opcional para el mapa */
+    border-radius: 4px; /* Bordes redondeados opcionales */
+}
+
+.text-content {
+    flex: 1;        /* Hace que el texto ocupe una parte del espacio disponible */
+    min-width: 300px; /* Ancho mínimo para el texto */
+    padding: 0 10px; /* Un poco de padding interno si quieres */
+}
+
+.text-content h2 { /* Estilo para el subtítulo dentro del área de texto */
+    margin-top: 0; /* Quita el margen superior si es el primer elemento */
+    color: #e0e0e0; /* O el color que uses para tus H2 */
+}
+
+/* Ajustes para pantallas más pequeñas (responsividad) */
+@media (max-width: 768px) { /* Usa el mismo punto de quiebre que tienes para la navbar */
+    .content-map-container {
+        flex-direction: column; /* Apila el mapa y el texto verticalmente */
+    }
+
+    #mapAcerca {
+        height: 350px; /* Puedes ajustar la altura del mapa para móviles */
+        margin-bottom: 20px; /* Espacio debajo del mapa cuando está apilado */
+    }
+
+    .text-content {
+        padding: 0; /* Sin padding extra si ocupa todo el ancho */
+    }
+}
+/* estilos.css */
+
+/* ... (TODOS TUS ESTILOS ANTERIORES VAN AQUÍ) ... */
+
+/* Nuevos estilos para el contenedor del mapa y texto en acercade.html */
+.content-map-container {
+    display: flex; /* Habilita Flexbox para poner elementos en fila */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no hay espacio */
+    gap: 20px; /* Espacio entre el mapa y el bloque de texto */
+    margin-top: 30px; /* Espacio después del título H1 */
+    margin-bottom: 30px; /* Espacio antes del footer o siguiente contenido */
+}
+
+#mapAcerca {
+    height: 450px; /* Altura del mapa, ajústala según necesites */
+    flex: 1;       /* Hace que el mapa ocupe una parte del espacio disponible */
+    min-width: 300px; /* Ancho mínimo para el mapa antes de que se envuelva en pantallas pequeñas */
+    border: 1px solid #05161a; /* Borde opcional para el mapa */
+    border-radius: 4px; /* Bordes redondeados opcionales */
+}
+
+.text-content {
+    flex: 1;        /* Hace que el texto ocupe una parte del espacio disponible */
+    min-width: 300px; /* Ancho mínimo para el texto */
+    padding: 0 10px; /* Un poco de padding interno si quieres */
+}
+
+.text-content h2 { /* Estilo para el subtítulo dentro del área de texto */
+    margin-top: 0; /* Quita el margen superior si es el primer elemento */
+    color: #e0e0e0; /* O el color que uses para tus H2 */
+}
+
+/* Ajustes para pantallas más pequeñas (responsividad) */
+@media (max-width: 768px) { /* Usa el mismo punto de quiebre que tienes para la navbar */
+    .content-map-container {
+        flex-direction: column; /* Apila el mapa y el texto verticalmente */
+    }
+
+    #mapAcerca {
+        height: 350px; /* Puedes ajustar la altura del mapa para móviles */
+        margin-bottom: 20px; /* Espacio debajo del mapa cuando está apilado */
+    }
+
+    .text-content {
+        padding: 0; /* Sin padding extra si ocupa todo el ancho */
+    }
+}
+/* estilos.css */
+
+/* ... (tus estilos existentes van aquí) ... */
+
+/* Estilos para la sección de descripción de herramientas */
+.descripcion-herramientas {
+    text-align: center; /* Centra el texto de los elementos hijos */
+    max-width: 850px;   /* Un ancho máximo para que el texto centrado no sea demasiado amplio */
+    margin-left: auto;  /* Centra el bloque en la página */
+    margin-right: auto; /* Centra el bloque en la página */
+    padding: 0 15px;    /* Un poco de padding por si el texto llega a los bordes del max-width */
+}
+
+.descripcion-herramientas h2 {
+    color: #e0e0e0; /* O el color que uses para tus H2 */
+    font-size: 1.8em;
+    margin-top: 0; /* Si es el primer elemento después de H1 */
+    margin-bottom: 25px;
+    border-bottom: 2px solid #4A6D82;
+    padding-bottom: 10px;
+    display: inline-block; /* Para que el borde inferior solo ocupe el ancho del texto */
+}
+
+.descripcion-herramientas h3 {
+    color: #cccccc; /* O el color que uses para tus H3 */
+    font-size: 1.4em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.descripcion-herramientas p {
+    color: #dcdcdc; /* O el color que uses para tus párrafos */
+    font-size: 1em; /* o 1.1em si prefieres el texto un poco más grande */
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: justify; /* Justifica el texto de los párrafos para un look más formal */
+    /* Si prefieres los párrafos también centrados, cambia text-align: justify; por text-align: center; */
+    /* o elimina esta línea para que hereden el text-align: center; del contenedor padre */
+}
+/* estilos.css */
+
+/* ... (TODOS TUS ESTILOS ANTERIORES VAN AQUÍ) ... */
+
+/* Nuevos estilos para la página del Autor */
+.autor-info-container {
+    display: flex;            /* Habilita Flexbox para bio y foto en fila */
+    flex-wrap: wrap;          /* Permite que se apilen en pantallas pequeñas */
+    gap: 30px;                /* Espacio entre el bloque de biografía y el de la foto */
+    margin-top: 30px;
+    margin-bottom: 40px;      /* Espacio antes de la sección del mapa */
+    align-items: flex-start;  /* Alinea los items al inicio si tienen alturas diferentes */
+}
+
+.biografia-texto {
+    flex: 2;                  /* La biografía tomará aproximadamente 2/3 del espacio */
+    min-width: 300px;         /* Ancho mínimo antes de que se apilen */
+}
+
+.biografia-texto h2 {
+    color: #e0e0e0;           /* O el color que uses para H2 */
+    font-size: 1.6em;         /* Ajusta según tus preferencias */
+    margin-top: 0;            /* Quita margen superior si es el primer elemento */
+    margin-bottom: 15px;
+    border-bottom: 1px solid #4A6D82;
+    padding-bottom: 8px;
+}
+
+.autor-foto {
+    flex: 1;                  /* La foto tomará aproximadamente 1/3 del espacio */
+    min-width: 250px;         /* Ancho mínimo para la foto */
+    text-align: center;       /* Centra la imagen dentro de su contenedor */
+}
+
+.autor-foto img {
+    max-width: 100%;          /* La imagen no excederá el ancho de su contenedor */
+    height: auto;             /* Mantiene la proporción de la imagen */
+    border-radius: 8px;       /* Bordes redondeados para la foto */
+    border: 3px solid #4A6D82;/* Un borde sutil con un color de tu paleta */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Una sombra para darle profundidad */
+}
+
+.mapa-autor-container {
+    margin-top: 40px; /* Espacio arriba de la sección del mapa */
+    text-align: center; /* Para centrar el título H2 del mapa */
+}
+
+.mapa-autor-container h2 {
+    color: #e0e0e0;   /* O el color que uses para H2 */
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+#mapAutor {
+    height: 400px;            /* Altura del mapa, ajústala si es necesario */
+    width: 100%;              /* El mapa ocupará todo el ancho disponible */
+    border: 1px solid #05161a; /* Borde similar a otros mapas */
+    border-radius: 4px;
+    margin-bottom: 30px; /* Espacio debajo del mapa */
+}
+
+/* Ajustes para pantallas más pequeñas (responsividad) */
+@media (max-width: 768px) {
+    .autor-info-container {
+        flex-direction: column; /* Apila la bio y la foto verticalmente */
+        align-items: center;    /* Centra los elementos al apilarse */
+    }
+
+    .biografia-texto {
+        order: 2;               /* Opcional: Poner el texto después de la foto en móvil */
+        text-align: justify;    /* Justificar el texto de la bio en móvil o dejarlo left/center */
+        margin-top: 20px;
+    }
+
+    .autor-foto {
+        order: 1;               /* Opcional: Poner la foto primero en móvil */
+        width: 80%;             /* Hacer la foto un poco más pequeña en móvil */
+        max-width: 280px;       /* Un máximo para la foto en móvil */
+    }
+
+    #mapAutor {
+        height: 300px; /* Altura del mapa ligeramente reducida en móviles */
     }
 }
